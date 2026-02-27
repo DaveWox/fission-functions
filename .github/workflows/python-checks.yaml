@@ -1,1 +1,34 @@
+name: Python Checks
+# This workflow will run through a number of steps to check the code quality
+# of functions promoted to pthon-functions branch and any PR to the main branch.
 
+on:
+    push:
+        branches: [ python-functions ]
+    pull_request:
+        branches: [ main ]
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v6
+
+            - name: Set up Python
+              uses: actions/setup-python@v6
+              with:
+                python-version: "3.x"
+
+            - name: install dependencies
+              run: |
+                python -m pip install --upgrade pip
+                pip install ruff
+
+            - name: Run Ruff
+              run: ruff check --output-format=github .
+
+            - name: Check formatting
+              run: ruff format . --check --diff
+            
