@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Move Object</title>
+</head>
+<body>
+  <canvas id="canvas" width="400" height="400" style="border:1px solid black"></canvas>
+  <br/>
+  <button onclick="send('UP')">Up</button>
+  <button onclick="send('DOWN')">Down</button>
+  <button onclick="send('LEFT')">Left</button>
+  <button onclick="send('RIGHT')">Right</button>
+
+  <script>
+    const ws = new WebSocket(`ws://${location.host}/ws`);
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    let position = {x:200, y:200};
+
+    ws.onmessage = (event) => {
+      position = JSON.parse(event.data);
+      draw();
+    };
+
+    function send(cmd) {
+      ws.send(cmd);
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.arc(position.x, position.y, 10, 0, 2*Math.PI);
+      ctx.fill();
+    }
+
+    draw();
+  </script>
+</body>
+</html>

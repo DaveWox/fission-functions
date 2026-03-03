@@ -1,0 +1,10 @@
+apiVersion: fission.io/v1
+kind: Environment
+metadata:
+  name: python
+spec:
+  version: 3
+  runtime:
+    image: fission/python-env
+  builder:
+    image: fission/python-builder
