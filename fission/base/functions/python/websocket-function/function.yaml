@@ -1,0 +1,10 @@
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  name: websocket-ui-fn
+spec:
+  environment:
+    name: python
+  package:
+    name: websocket-ui-pkg
+  entrypoint: "uvicorn handler:app --host 0.0.0.0 --port 8000"

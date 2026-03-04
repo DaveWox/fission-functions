@@ -1,0 +1,10 @@
+apiVersion: fission.io/v1
+kind: HTTPTrigger
+metadata:
+  name: websocket-ui-route
+spec:
+  relativeurl: /websocket
+  method: GET
+  functionref:
+    type: name
+    name: websocket-ui-fn

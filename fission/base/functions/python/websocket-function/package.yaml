@@ -1,0 +1,11 @@
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  name: websocket-ui-pkg
+spec:
+  environment:
+    name: python
+  source:
+    type: url
+    url: /
+  buildcmd: "pip install -r requirements.txt"
