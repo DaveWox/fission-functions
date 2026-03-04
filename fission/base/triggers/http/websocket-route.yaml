@@ -3,7 +3,8 @@ kind: HTTPTrigger
 metadata:
   name: websocket-ui-route
 spec:
-  relativeurl: functions/python/websocket-function/
+  relativeurl: /websocket
   method: GET
   functionref:
+    type: name
     name: websocket-ui-fn
