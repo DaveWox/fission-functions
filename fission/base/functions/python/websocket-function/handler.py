@@ -8,6 +8,7 @@ app = FastAPI()
 # Starting position of our cube
 position = {"x": 200, "y": 200}
 
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
