@@ -2,8 +2,6 @@
 # the given UI presented by index.html
 from fastapi import FastAPI, WebSocket
 from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
-import asyncio
 
 app = FastAPI()
 
