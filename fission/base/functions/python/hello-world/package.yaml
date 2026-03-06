@@ -1,0 +1,12 @@
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  name: hello-world-pkg
+spec:
+  environment:
+    name: python
+    namespace: fission
+  deployment:
+    type: url
+    url: https://github.com/DaveWox/fission-functions/blob/main/fission/base/functions/python/hello-world/hello.py
+  buildcmd: "./build.sh"
