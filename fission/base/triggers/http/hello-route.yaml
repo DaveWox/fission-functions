@@ -1,0 +1,10 @@
+apiVersion: fission.io/v1
+kind: HTTPTrigger
+metadata:
+  name: hello-route
+spec:
+  relativeurl: /hello
+  method: GET
+  functionref:
+    type: name
+    name: hello-world-fn
