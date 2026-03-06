@@ -9,4 +9,3 @@ spec:
   deployment:
     type: url
     url: https://github.com/DaveWox/fission-functions/blob/main/fission/base/functions/python/hello-world/hello.py
-  buildcmd: "./build.sh"
