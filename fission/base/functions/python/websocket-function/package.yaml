@@ -10,4 +10,4 @@ spec:
   source:
     type: url
     url: https://github.com/DaveWox/fission-functions/archive/refs/heads/main.zip
-  buildcmd: "./build.sh"
+  buildcmd: bash -lc 'chmod +x build.sh && ./build.sh'
