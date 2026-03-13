@@ -10,4 +10,10 @@ spec:
   source:
     type: url
     url: https://github.com/DaveWox/fission-functions/archive/refs/heads/main.zip
+
+  
+  deployment:
+    type: url
+    url: ""
+
   buildcmd: bash -lc 'chmod +x build.sh && ./build.sh'
