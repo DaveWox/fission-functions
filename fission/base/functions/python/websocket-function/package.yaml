@@ -16,10 +16,16 @@ spec:
     type: url
     url: ""
 
-  buildcmd: >
-    bash -lc '
-      set -euo pipefail
-      cd fission-functions-main*/fission/base/functions/python/websocket-function
-      chmod +x build.sh
-      ./build.sh
-    '
+  
+buildcmd: |
+  bash -lc '
+    set -euxo pipefail
+    echo "--- Current directory ---"
+    pwd
+    echo "--- Top-level contents ---"
+    ls -la
+    echo "--- Full listing (2 levels) ---"
+    find . -maxdepth 2 -type d -print
+    find . -maxdepth 3 -type f -name build.sh -print
+  '
+
