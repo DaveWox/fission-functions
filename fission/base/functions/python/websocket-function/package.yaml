@@ -17,15 +17,15 @@ spec:
     url: ""
 
   
-buildcmd: |
-  bash -lc '
-    set -euxo pipefail
-    echo "--- Current directory ---"
-    pwd
-    echo "--- Top-level contents ---"
-    ls -la
-    echo "--- Full listing (2 levels) ---"
-    find . -maxdepth 2 -type d -print
-    find . -maxdepth 3 -type f -name build.sh -print
-  '
+  buildcmd: |
+    bash -lc '
+      set -euxo pipefail
+      echo "--- Current directory ---"
+      pwd
+      echo "--- Top-level contents ---"
+      ls -la
+      echo "--- Full listing (2 levels) ---"
+      find . -maxdepth 2 -type d -print
+      find . -maxdepth 3 -type f -name build.sh -print
+    '
 
