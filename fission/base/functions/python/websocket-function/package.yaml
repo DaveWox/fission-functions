@@ -11,21 +11,11 @@ spec:
     type: url
     url: https://github.com/DaveWox/fission-functions/archive/refs/heads/main.zip
 
-  
+  # required placeholder for source builds
   deployment:
     type: url
     url: ""
 
   
-  buildcmd: |
-    bash -lc '
-      set -euxo pipefail
-      echo "--- Current directory ---"
-      pwd
-      echo "--- Top-level contents ---"
-      ls -la
-      echo "--- Full listing (2 levels) ---"
-      find . -maxdepth 2 -type d -print
-      find . -maxdepth 3 -type f -name build.sh -print
-    '
+  buildcmd: "./websocket-build.sh"
 
