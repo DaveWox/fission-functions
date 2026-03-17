@@ -9,11 +9,14 @@ spec:
     namespace: fission
   
   InvokeStrategy:
-    executionStrategy:
+    StrategyType: execution
+    ExecutionStrategy:
       executorType: poolmgr
       minScale: 0
       maxScale: 1
 
   package:
-    name: hello-world-pkg
+    packageRef:
+      name: hello-world-pkg
+
   entrypoint: hello.main

@@ -7,6 +7,12 @@ spec:
   environment:
     name: python
     namespace: fission
-  deployment:
+
+  source:
     type: url
     url: https://github.com/DaveWox/fission-functions/blob/main/fission/base/functions/python/hello-world/hello.py
+
+  # required placeholder for source builds
+  deployment:
+    type: literal
+    literal: ""

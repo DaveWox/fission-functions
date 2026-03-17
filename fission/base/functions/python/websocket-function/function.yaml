@@ -13,8 +13,8 @@ spec:
       namespace: fission
   
   InvokeStrategy:
-    strategy:
-      executionStrategy:
-        executorType: poolmgr
-        minScale: 0
-        maxScale: 1
+    StrategyType: execution
+    ExecutionStrategy:
+      executorType: poolmgr
+      minScale: 0
+      maxScale: 1
