@@ -14,5 +14,5 @@ spec:
 
   # required placeholder for source builds
   deployment:
-    type: literal
-    literal: ""
+    type: url
+    url: "https://raw.githubusercontent.com/DaveWox/fission-functions/main/fission/base/functions/python/hello-world/hello.py"
