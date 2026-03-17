@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - python/websocket-function/
+  - python/hello-world/
