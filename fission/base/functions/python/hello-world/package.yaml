@@ -8,6 +8,12 @@ spec:
     name: python
     namespace: fission
 
-  deployment:
+  source:
     type: url
     url: "https://raw.githubusercontent.com/DaveWox/fission-functions/main/fission/base/functions/python/hello-world/hello.py"
+
+  
+  # Deployment is empty, Fission will run source directly
+  deployment:
+    type: literal
+    literal: ""
