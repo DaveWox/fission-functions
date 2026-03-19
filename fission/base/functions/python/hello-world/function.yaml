@@ -11,6 +11,7 @@ spec:
   InvokeStrategy:
     StrategyType: execution
     ExecutionStrategy:
+      ExecutorType: poolmgr
       MinScale: 0
       MaxScale: 1
 
