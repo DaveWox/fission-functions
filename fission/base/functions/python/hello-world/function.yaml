@@ -16,7 +16,7 @@ spec:
       MaxScale: 1
 
   package:
-    packageRef:
+    packageref:
       name: hello-world-pkg
       namespace: fission
 

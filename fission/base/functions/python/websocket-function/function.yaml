@@ -8,7 +8,7 @@ spec:
     namespace: fission
   
   package:
-    packageRef: 
+    packageref: 
       name: websocket-ui-pkg
       namespace: fission
   
