@@ -8,11 +8,6 @@ spec:
     name: python
     namespace: fission
 
-  source:
-    type: url
-    url: https://github.com/DaveWox/fission-functions/blob/main/fission/base/functions/python/hello-world/hello.py
-
-  # required placeholder for source builds
   deployment:
     type: url
     url: "https://raw.githubusercontent.com/DaveWox/fission-functions/main/fission/base/functions/python/hello-world/hello.py"
