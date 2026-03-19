@@ -18,5 +18,6 @@ spec:
   package:
     packageRef:
       name: hello-world-pkg
+      namespace: fission
 
   entrypoint: hello.main
