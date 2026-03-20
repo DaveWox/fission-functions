@@ -5,7 +5,7 @@ metadata:
   namespace: fission
 spec:
   environment:
-    name: python-nobuild-env
+    name: python-nobuilder
     namespace: fission
   
   InvokeStrategy:
