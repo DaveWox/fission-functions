@@ -3,6 +3,9 @@ kind: Package
 metadata:
   name: hello-world-pkg
   namespace: fission
+  annotations:
+    fission.io/skip-build: "true"
+
 spec:
   environment:
     name: python-nobuilder
