@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - python-env.yaml
+  - python-nobuild-env.yaml
