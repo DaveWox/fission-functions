@@ -3,14 +3,13 @@ kind: Package
 metadata:
   name: hello-world-pkg
   namespace: fission
-  annotations:
-    fission.io/skip-build: "true"
 
 spec:
   environment:
     name: python-nobuilder
     namespace: fission
 
-  source:
+  deployment:
+    checksum: {}
     type: url
-    url: "https://raw.githubusercontent.com/DaveWox/fission-functions/main/fission/base/functions/python/hello-world/hello.py"
+    url: "https://raw.githubusercontent.com/DaveWox/fission-functions/main/fission/base/functions/python/hello-world/hello.zip"
