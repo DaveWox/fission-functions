@@ -7,5 +7,5 @@ spec:
   version: 3
   poolsize: 1
   runtime:
-    image: fission/python-env
+    image: ghcr.io/fission/python-env
   
