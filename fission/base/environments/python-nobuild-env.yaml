@@ -8,4 +8,6 @@ spec:
   poolsize: 1
   runtime:
     image: ghcr.io/fission/python-env
+    container:
+      port: 8888
   
