@@ -8,6 +8,7 @@ spec:
   environment:
     name: python-nobuilder
     namespace: fission
+    entrypoint: "hello.main"
 
   deployment:
     checksum: {}
