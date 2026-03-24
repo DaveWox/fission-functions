@@ -9,5 +9,6 @@ spec:
   runtime:
     image: ghcr.io/fission/python-env
     container:
+      name: python-nobuilder
       port: 8888
   
