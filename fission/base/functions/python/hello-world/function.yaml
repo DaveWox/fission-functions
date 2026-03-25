@@ -19,4 +19,5 @@ spec:
     packageref:
       name: hello-world-pkg
       namespace: fission
+    functionName: main
   
