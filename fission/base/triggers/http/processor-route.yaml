@@ -1,0 +1,12 @@
+apiVersion: fission.io/v1
+kind: HTTPTrigger
+metadata:
+  name: processor-route
+  namespace: fission
+spec:
+  relativeurl: /processor
+  method: POST
+  functionref:
+    type: name
+    name: processor-fn
+    namespace: fission
