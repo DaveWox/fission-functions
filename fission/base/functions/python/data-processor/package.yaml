@@ -1,0 +1,15 @@
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  name: processor-pkg
+  namespace: fission
+
+spec:
+  environment:
+    name: python-nobuilder
+    namespace: fission
+
+  deployment:
+    checksum: {}
+    type: url
+    url: "https://raw.githubusercontent.com/DaveWox/fission-functions/main/fission/base/functions/python/data-processor/processor.zip"
