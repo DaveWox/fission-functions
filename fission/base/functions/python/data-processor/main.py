@@ -21,7 +21,7 @@ def main():
             "sum": sum(numbers),
             "min": min(numbers),
             "max": max(numbers),
-            "average": sum(numbers) / len(numbers)
+            "average": sum(numbers) / len(numbers),
         }
 
         return json.dumps(result), 200
