@@ -2,6 +2,7 @@
 import json
 from flask import request
 
+
 def main():
     """
     Fission Python functions receive HTTP requests through Flask's request object.
