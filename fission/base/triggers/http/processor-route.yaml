@@ -9,4 +9,3 @@ spec:
   functionref:
     type: name
     name: processor-fn
-    namespace: fission
