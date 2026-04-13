@@ -1,7 +1,5 @@
 import json
-import types
 from processor import main
-from flask import Request
 from werkzeug.test import EnvironBuilder
 from werkzeug.wrappers import Request as WerkzeugRequest
 
@@ -14,7 +12,6 @@ def run_request(json_body):
     env = builder.get_environ()
     req = WerkzeugRequest(env)
 
-    # Monkey‑patch Flask's global request object
     import processor
     processor.request = req
 
