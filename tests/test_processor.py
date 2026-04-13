@@ -1,7 +1,8 @@
 import json
-from processor import main
 from werkzeug.test import EnvironBuilder
 from werkzeug.wrappers import Request as WerkzeugRequest
+
+import processor
 
 def run_request(json_body):
     builder = EnvironBuilder(
@@ -12,28 +13,34 @@ def run_request(json_body):
     env = builder.get_environ()
     req = WerkzeugRequest(env)
 
-    import processor
     processor.request = req
 
-    result, status = main()
-    return json.loads(result), status
+    response_body, status = processor.main()
+    return json.loads(response_body), status
 
 
 def test_valid_numbers():
     body = {"numbers": [1, 2, 3, 4]}
-    json_out, status = run_request(body)
+    result, status = run_request(body)
+
     assert status == 200
-    assert json_out["sum"] == 10
-    assert json_out["average"] == 2.5
+    assert result["count"] == 4
+    assert result["sum"] == 10
+    assert result["average"] == 2.5
 
 
 def test_invalid_type():
     body = {"numbers": "oops"}
-    json_out, status = run_request(body)
+    result, status = run_request(body)
+
     assert status == 400
+    assert "error" in result
 
 
 def test_empty_list():
     body = {"numbers": []}
-    json_out, status = run_request(body)
+    result, status = run_request(body)
+
     assert status == 400
+    assert "error" in result
+
