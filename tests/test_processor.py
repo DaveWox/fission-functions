@@ -6,9 +6,7 @@ import processor
 
 def run_request(json_body):
     builder = EnvironBuilder(
-        method="POST",
-        data=json.dumps(json_body),
-        content_type="application/json"
+        method="POST", data=json.dumps(json_body), content_type="application/json"
     )
     env = builder.get_environ()
     req = WerkzeugRequest(env)

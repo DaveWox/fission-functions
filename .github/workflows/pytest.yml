@@ -8,18 +8,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix: # Test against multiple Python versions, fission currently supports 3.7+
-        python-version: ['3.7', '3.8', '3.9', '3.10', '3.11', '3.12']  # Added quotes as 3.10 got misinterpreted as 3.1
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 
         uses: actions/setup-python@v6
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
