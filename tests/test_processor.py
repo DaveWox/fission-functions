@@ -4,6 +4,7 @@ from werkzeug.wrappers import Request as WerkzeugRequest
 
 import processor
 
+
 def run_request(json_body):
     builder = EnvironBuilder(
         method="POST", data=json.dumps(json_body), content_type="application/json"
@@ -41,4 +42,3 @@ def test_empty_list():
 
     assert status == 400
     assert "error" in result
-
