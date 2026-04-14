@@ -21,7 +21,6 @@ def process_numbers(numbers):
 
 
 def main():
-    
     try:
         payload = request.get_json(force=True)
         result = process_numbers(payload.get("numbers"))
@@ -32,4 +31,3 @@ def main():
 
     except Exception as e:
         return json.dumps({"error": str(e)}), 500
-

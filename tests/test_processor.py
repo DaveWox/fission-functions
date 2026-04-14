@@ -12,7 +12,6 @@ def test_valid_numbers():
     assert result["average"] == 2.5
 
 
-
 def test_empty_list():
     with pytest.raises(ValueError) as exc:
         process_numbers([])
