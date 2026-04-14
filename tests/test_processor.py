@@ -1,5 +1,5 @@
 import pytest
-from processor import process_numbers
+from main import process_numbers
 
 
 def test_valid_numbers():
