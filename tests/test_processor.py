@@ -1,44 +1,27 @@
-import json
-from werkzeug.test import EnvironBuilder
-from werkzeug.wrappers import Request as WerkzeugRequest
-
-import processor
-
-
-def run_request(json_body):
-    builder = EnvironBuilder(
-        method="POST", data=json.dumps(json_body), content_type="application/json"
-    )
-    env = builder.get_environ()
-    req = WerkzeugRequest(env)
-
-    processor.request = req
-
-    response_body, status = processor.main()
-    return json.loads(response_body), status
+import pytest
+from processor import process_numbers
 
 
 def test_valid_numbers():
-    body = {"numbers": [1, 2, 3, 4]}
-    result, status = run_request(body)
+    result = process_numbers([1, 2, 3, 4])
 
-    assert status == 200
     assert result["count"] == 4
     assert result["sum"] == 10
+    assert result["min"] == 1
+    assert result["max"] == 4
     assert result["average"] == 2.5
 
 
-def test_invalid_type():
-    body = {"numbers": "oops"}
-    result, status = run_request(body)
-
-    assert status == 400
-    assert "error" in result
-
 
 def test_empty_list():
-    body = {"numbers": []}
-    result, status = run_request(body)
+    with pytest.raises(ValueError) as exc:
+        process_numbers([])
 
-    assert status == 400
-    assert "error" in result
+    assert "empty" in str(exc.value)
+
+
+def test_invalid_type():
+    with pytest.raises(ValueError) as exc:
+        process_numbers("oops")
+
+    assert "must be a list" in str(exc.value)
