@@ -35,5 +35,20 @@ jobs:
             fi
           done
 
+      - name: Commit ZIP files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add fission/base/functions/python/**/*.zip
+
+          # Only commit if there are changes
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-generate function ZIPs [ci skip]"
+            git push
+          else
+            echo "No ZIP changes to commit"
+          fi
+
 
       
