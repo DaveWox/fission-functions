@@ -5,6 +5,9 @@ on:
     paths:
       - 'fission/base/functions/python/**/main.py'
 
+permissions:
+  contents: write
+
 jobs:
   zip-source:
     runs-on: ubuntu-latest
