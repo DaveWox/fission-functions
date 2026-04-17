@@ -15,10 +15,25 @@ jobs:
 
       - name: Create zip archive
         run: |
-          zip source.zip main.py
+          BASE_DIR="fission/base/functions/python"
 
-      - name: Upload zip artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: fission-source
-          path: source.zip
+          
+          for dir in "$BASE_DIR"/*/ ; do
+            if [ -f "${dir}main.py" ]; then
+              FUNCTION_NAME=$(basename "$dir")
+              ZIP_FILE="${dir}${FUNCTION_NAME}.zip"
+
+              echo "Zipping ${dir}main.py -> $ZIP_FILE"
+
+              # Remove old zip if it exists
+              rm -f "$ZIP_FILE"
+
+              
+              # Zip ONLY main.py, with no other directory contents for now
+              (cd "$dir" && zip "$FUNCTION_NAME.zip" main.py)
+
+            fi
+          done
+
+
+      
