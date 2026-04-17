@@ -1,0 +1,39 @@
+name: Zip Python source for Fission
+
+on:
+  push:
+    paths:
+      - 'fission/base/functions/python/**/main.py'
+
+jobs:
+  zip-source:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Create zip archive
+        run: |
+          BASE_DIR="fission/base/functions/python"
+
+          
+          for dir in "$BASE_DIR"/*/ ; do
+            if [ -f "${dir}main.py" ]; then
+              FUNCTION_NAME=$(basename "$dir")
+              ZIP_FILE="${dir}${FUNCTION_NAME}.zip"
+
+              echo "Zipping ${dir}main.py -> $ZIP_FILE"
+
+              # Remove old zip if it exists
+              rm -f "$ZIP_FILE"
+
+              
+              # Zip ONLY main.py, with no other directory contents for now
+              (cd "$dir" && zip "$FUNCTION_NAME.zip" main.py)
+
+            fi
+          done
+
+
+      
