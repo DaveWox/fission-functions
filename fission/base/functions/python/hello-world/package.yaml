@@ -12,4 +12,4 @@ spec:
   deployment:
     checksum: {}
     type: url
-    url: "https://raw.githubusercontent.com/DaveWox/fission-functions/main/fission/base/functions/python/hello-world/hello.zip"
+    url: "https://raw.githubusercontent.com/DaveWox/fission-functions/main/fission/base/functions/python/hello-world/hello-world.zip"
