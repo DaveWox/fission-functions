@@ -1,19 +1,6 @@
 # A python function that processes a list of numbers and returns statistics about them.
 import json
-import os
 from flask import request
-from prometheus_client import Counter, Summary
-
-# Set up Prometheus metrics exporter
-FUNCTION_NAME = os.getenv("FUNCTION_NAME", "data_processor")
-PROCESS_COUNT = Counter(
-    "fission_function_process_count", "Total number of requests processed", ["function"]
-)
-PROCESS_TIME = Summary(
-    "fission_function_process_time",
-    "Total processing time",
-    ["function"],
-)
 
 
 def process_numbers(numbers):
@@ -35,13 +22,9 @@ def process_numbers(numbers):
 
 def main():
     try:
-        # Increment the process count and time metrics
-        PROCESS_COUNT.labels(function=FUNCTION_NAME).inc()
-        PROCESS_TIME.labels(function=FUNCTION_NAME).inc()
-        with PROCESS_TIME.labels(function=FUNCTION_NAME).time():
-            payload = request.get_json(force=True)
-            result = process_numbers(payload.get("numbers"))
-            return json.dumps(result), 200
+        payload = request.get_json(force=True)
+        result = process_numbers(payload.get("numbers"))
+        return json.dumps(result), 200
 
     except ValueError as e:
         return json.dumps({"error": str(e)}), 400
