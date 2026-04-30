@@ -3,7 +3,6 @@ import json
 import os
 from flask import request
 from prometheus_client import Counter
-from fission.metrics import exporter
 
 # Set up Prometheus metrics exporter
 FUNCTION_NAME = os.getenv("FUNCTION_NAME", "data_processor")
