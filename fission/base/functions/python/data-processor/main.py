@@ -10,7 +10,9 @@ PROCESS_COUNT = Counter(
     "fission_function_process_count", "Total number of requests processed", ["function"]
 )
 PROCESS_TIME = Counter(
-    "fission_function_process_time", "Total time spent processing requests", ["function"]
+    "fission_function_process_time", 
+    "Total time spent processing requests", 
+    ["function"]
 )
 
 
