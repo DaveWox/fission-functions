@@ -6,8 +6,13 @@ from prometheus_client import Counter
 
 # Set up Prometheus metrics exporter
 FUNCTION_NAME = os.getenv("FUNCTION_NAME", "data_processor")
-PROCESS_COUNT = Counter("fission_function_process_count", "Total number of requests processed", ["function"])
-PROCESS_TIME = Counter("fission_function_process_time", "Total time spent processing requests", ["function"])
+PROCESS_COUNT = Counter(
+    "fission_function_process_count", "Total number of requests processed", ["function"]
+)
+PROCESS_TIME = Counter(
+    "fission_function_process_time", "Total time spent processing requests", ["function"]
+)
+
 
 def process_numbers(numbers):
 
